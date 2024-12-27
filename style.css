@@ -1,0 +1,68 @@
+body {
+    background-color: #313131; 
+    margin: 0; 
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    padding: 0;
+}
+p {
+    font-size: 2rem;
+    font-weight: 400;
+}
+h1 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+.btn-github {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    border: none;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 100px;
+    font-weight: 800;
+    place-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.825rem;
+    line-height: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    color: #fff;
+}
+.btn-github:hover {
+    box-shadow: 
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08); /* Retain the shadow effect */
+    color: grey;
+    background-color: rgba(0, 0, 0, 0.5); /* Keep the background change */
+    border-radius: 50px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the navigation items horizontally */
+    align-items: center; /* Center items vertically (optional) */
+    background-color: #313131;
+}
+  
+li {
+    margin: 0 10px; /* Add some spacing between items */
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+  
+li a:hover {
+    background-color: #111;
+    border-radius: 50px; /* Optional: make hover effect rounded */
+}
