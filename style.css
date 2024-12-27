@@ -8,6 +8,7 @@ body {
     line-height: 1.6;
     padding: 0;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -27,37 +28,4 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 0.7rem;
-}
-li a:hover {
-    background-color: #dddddd; /* Light theme hover color */
-    border-radius: 50px;
-}
-
-/* Dark Theme Class */
-body.dark-mode {
-    background-color: #313131; /* Dark background color */
-    color: #ffffff; /* Dark theme text color */
-}
-ul.dark-mode {
-    background-color: #313131; /* Dark theme nav bar color */
-}
-li a.dark-mode {
-    color: #ffffff; /* Dark theme link color */
-}
-li a.dark-mode:hover {
-    background-color: #222222; /* Dark theme hover color */
-}
-.dark-mode-btn {
-    cursor: pointer;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 0.8rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.dark-mode-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
 }
