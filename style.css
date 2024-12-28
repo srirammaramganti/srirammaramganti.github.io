@@ -1,7 +1,7 @@
-/* Default Light Theme */
+/* Default Dark Mode */
 body {
-    background-color: #ffffff; /* Light background color */
-    color: #000000; /* Light theme text color */
+    background-color: #313131;
+    color: #f0f0f0;
     margin: 0;
     height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -15,49 +15,52 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Light theme nav bar color */
+    background-color: #313131;
 }
 li {
     margin: 0 10px;
 }
 li a {
     display: block;
-    color: #000000; /* Light theme link color */
+    color: #f0f0f0;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 0.7rem;
 }
 li a:hover {
-    background-color: #dddddd; /* Light theme hover color */
+    background-color: #f0f0f0;
+    color: #313131;
     border-radius: 50px;
 }
 
-/* Dark Theme Class */
-body.dark-mode {
-    background-color: #313131; /* Dark background color */
-    color: #ffffff; /* Dark theme text color */
+/* Light Mode Class */
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #313131;
 }
-ul.dark-mode {
-    background-color: #313131; /* Dark theme nav bar color */
+ul.light-mode {
+    background-color: #f0f0f0;
 }
-li a.dark-mode {
-    color: #ffffff; /* Dark theme link color */
+li a.light-mode {
+    color: #313131;
 }
-li a.dark-mode:hover {
-    background-color: #222222; /* Dark theme hover color */
+li a.light-mode:hover {
+    background-color: #313131;
+    color: #f0f0f0;
+    border-radius: 50px;
 }
 .dark-mode-btn {
     cursor: pointer;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #313131;
+    color: #f0f0f0;
     font-size: 0.8rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .dark-mode-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #f0f0f0;
+    color: #313131;
 }

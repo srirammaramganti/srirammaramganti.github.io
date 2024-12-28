@@ -1,19 +1,31 @@
-// JavaScript to Toggle Dark Mode
-const darkModeToggle = document.getElementById("darkModeToggle");
+// Get references to toggle button and body
+const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 const navLinks = document.querySelectorAll("li a");
+const navBar = document.querySelector("ul");
 
-darkModeToggle.addEventListener("click", () => {
-  // Toggle the "dark-mode" class on the body
+// Set initial state to dark mode
+body.classList.add("dark-mode");
+navBar.classList.add("dark-mode");
+navLinks.forEach(link => link.classList.add("dark-mode"));
+
+// Toggle dark mode and light mode
+themeToggle.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
 
-  // Toggle dark mode for navigation links
-  navLinks.forEach(link => link.classList.toggle("dark-mode"));
+  navBar.classList.toggle("dark-mode");
+  navBar.classList.toggle("light-mode");
+
+  navLinks.forEach(link => {
+    link.classList.toggle("dark-mode");
+    link.classList.toggle("light-mode");
+  });
 
   // Update button text
   if (body.classList.contains("dark-mode")) {
-    darkModeToggle.textContent = "Light Mode";
+    themeToggle.textContent = "Light Mode";
   } else {
-    darkModeToggle.textContent = "Dark Mode";
+    themeToggle.textContent = "Dark Mode";
   }
 });
