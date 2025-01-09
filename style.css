@@ -7,12 +7,17 @@ body {
     line-height: 1.6;
     padding: 0;
 }
-
 h1 {
     color: #f0f0f0;
     text-align: center;
     margin-top: 20px;
     font-size: 2rem;
+}
+h2 {
+    color: #F0F0F0;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.25rem;
 }
 p {
     max-width: 800px;
@@ -50,12 +55,20 @@ li a:hover {
     color: #313131;
     border-radius: 50px;
 }
-
+img {
+    display: block;
+    margin: 20px auto; 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
 footer {
     background-color: #6b6b6b;
     padding: 20px;
     text-align: center;
     color: #f0f0f0;
+    font-size: 1.25rem;
 }
 
 .footer-bottom {
@@ -139,6 +152,9 @@ canvas {
     }
     h1 {
         font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1rem;
     }
     ul li a {
         font-size: 0.7rem;
