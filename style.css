@@ -7,6 +7,10 @@ body {
     line-height: 1.6;
     padding: 0;
 }
+.element {
+    position: fixed;
+    top: 0;
+}
 h1 {
     color: #f0f0f0;
     text-align: center;
