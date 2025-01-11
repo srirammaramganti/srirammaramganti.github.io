@@ -29,6 +29,11 @@ h3 {
     margin-top: 20px;
     font-size: 1.25rem;
 }
+h4 {
+    color: #f0f0f0;
+    text-align: left;
+    font-size: 1.25rem;
+}
 p {
     max-width: 800px;
     margin: 20px auto;
@@ -91,6 +96,102 @@ img {
     height: 150px; 
     border-radius: 50%; 
     object-fit: cover; 
+}
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    animation: moveline 1s linear forwards;
+}
+@keyframes moveline {
+ 0% {
+    height: 0;
+ }   
+ 100% {
+    height: 100%;
+ }
+}
+.container:nthchild(1){
+    animation-delay: 0s;
+}
+.container:nthchild(2){
+    animation-delay: 1s;
+}
+.container:nthchild(3){
+    animation-delay: 2s;
+}
+.container:nthchild(4){
+    animation-delay: 3s;
+}
+.container {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+@keyframes movedown {
+    0% {
+    opacity: 1;
+    transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.left-container {
+    left: 0;
+}
+.left-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 15px solid transparent;
+    right: -15px;
+}
+.right-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-right: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: -15px;
+}
+.right-container {
+    left: 50%
+}
+.text-box {
+    padding: 20px 30px;
+    background: #313131;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+.text-box h2{
+    font-weight: 600;
+}
+.text-box small {
+    display: inline-block;
+    margin-bottom: 15px;
 }
 footer {
     background-color: #6b6b6b;
@@ -168,7 +269,6 @@ canvas {
     position: relative;
     z-index: 1;
 }
-  
 
 @media (max-width: 600px) {
     p{
@@ -205,6 +305,31 @@ canvas {
     .left-side, .right-side {
         width: 100%;
         padding: 10px;
+    }
+    .timeline {
+        margin: 50px auto;
+    }
+    .timeline::after {
+        left: 31px;
+    }
+    .container {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+    .text-box {
+        font-size: 1rem;
+    }
+    .text-box small {
+        margin-bottom: 1-px;
+    }
+    .right-container {
+        left: 0;
+    }
+    .left-container-arrow, .right-container-arrow {
+        border-right: 15px solid white;
+        border-left: 0;
+        left: -15px;
     }
 }
 
