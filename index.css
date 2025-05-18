@@ -1,35 +1,59 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-}
+  }
   
-.navbar {
+  .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Distribute space evenly around all items */
     align-items: center;
     padding: 20px 40px;
     background-color: transparent;
-}
+  }
   
-.logo {
+  .logo {
     font-weight: 800;
     font-size: 24px;
     color: black;
-}
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
   
-.nav-links a {
-    margin-left: 30px;
+  .logo:hover {
+    transform: translateY(4px) scale(1.05);
+  }
+  
+  .nav-left {
+    display: flex;
+    /* We don't need justify-content here anymore */
+  }
+  
+  .nav-right {
+    display: flex;
+    /* We don't need justify-content here anymore */
+  }
+  
+  .nav-left a {
+    margin-right: 6vw; /* Adjust this value to control the space between HOME and CONTACT */
     text-decoration: none;
     color: black;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-    transition: color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
     font-weight: bold;
-}
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
   
-.nav-links a:hover {
-    color: #555;
-    transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 black;
-}
+  .nav-right a {
+    margin-left: 6vw; /* Adjust this value to control the space between GITHUB and RESUME */
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .nav-left a:hover,
+  .nav-right a:hover {
+    transform: translateY(2px) scale(1.05);
+  }
