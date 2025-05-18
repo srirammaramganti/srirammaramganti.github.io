@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: transparent;
+}
+  
+.logo {
+    font-weight: 800;
+    font-size: 24px;
+    color: black;
+}
+  
+.nav-links a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+  
+.nav-links a:hover {
+    color: #555;
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 black;
+}
