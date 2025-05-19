@@ -1,74 +1,55 @@
-/* three original colors
-E0E2DB - white
-007C77 - green
-D2D4C8 - navbar
-007C77
+/* Color reference:
+E0E2DB - light background
+007C77 - teal (accent)
+D2D4C8 - navbar background
+846075 - muted purple text
 */
+
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #007C77;
-    color: #846075;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #007C77;
+  color: #846075;
 }
-  
+
 .navbar {
-    display: flex;
-    justify-content: space-around;s
-    align-items: center;
-    padding: 20px 40px;
-    background-color : transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: #A0ECD0;
 }
-  
 .logo {
-    font-weight: 800;
-    font-size: 24px;
-    color: #846075;
-    transition: transform 0.3s ease;
-    cursor: default;
+  font-weight: 800;
+  font-size: 24px;
+  color: #846075;
+  user-select: none;
+  transition: transform 0.3s ease;
+  cursor: default;
+  margin-left: 20px;
 }
-  
+
 .logo:hover {
-    transform: translateY(0px) scale(1.05);
+  transform: translateY(0px) scale(1);
 }
 
-.logo a {
-    user-select: none;
+.nav-links {
+  display: flex;
+  gap: 32px;
 }
 
-.navbar {
-    background-color: #A0ECD0;
+.nav-links a {
+  color: #846075;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;      
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  padding: 6px 12px; 
+  transition: transform 0.3s ease, color 0.2s ease;
 }
 
-.nav-left {
-    display: flex;
-}
-  
-.nav-right {
-    display: flex;
-}
-  
-.nav-left a {
-    margin-right: 6vw; 
-    text-decoration: none;
-    color: #846075;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-  
-.nav-right a {
-    margin-left: 6vw; 
-    text-decoration: none;
-    color: #846075;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-  
-.nav-left a:hover,
-.nav-right a:hover {
-    transform: translateY(0px) scale(1.05);
-    color: #846075;
+.nav-links a:hover {
+  transform: translateY(0px) scale(1);
+  color: #846075;
 }
