@@ -1,59 +1,74 @@
+/* three original colors
+E0E2DB - white
+007C77 - green
+D2D4C8 - navbar
+007C77
+*/
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-  }
+    background-color: #007C77;
+    color: #846075;
+}
   
-  .navbar {
+.navbar {
     display: flex;
-    justify-content: space-around; /* Distribute space evenly around all items */
+    justify-content: space-around;s
     align-items: center;
     padding: 20px 40px;
-    background-color: transparent;
-  }
+    background-color : transparent;
+}
   
-  .logo {
+.logo {
     font-weight: 800;
     font-size: 24px;
-    color: black;
+    color: #846075;
     transition: transform 0.3s ease;
     cursor: default;
-  }
+}
   
-  .logo:hover {
-    transform: translateY(4px) scale(1.05);
-  }
-  
-  .nav-left {
+.logo:hover {
+    transform: translateY(0px) scale(1.05);
+}
+
+.logo a {
+    user-select: none;
+}
+
+.navbar {
+    background-color: #A0ECD0;
+}
+
+.nav-left {
     display: flex;
-    /* We don't need justify-content here anymore */
-  }
+}
   
-  .nav-right {
+.nav-right {
     display: flex;
-    /* We don't need justify-content here anymore */
-  }
+}
   
-  .nav-left a {
-    margin-right: 6vw; /* Adjust this value to control the space between HOME and CONTACT */
+.nav-left a {
+    margin-right: 6vw; 
     text-decoration: none;
-    color: black;
+    color: #846075;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     transition: transform 0.3s ease;
     display: inline-block;
-  }
+}
   
-  .nav-right a {
-    margin-left: 6vw; /* Adjust this value to control the space between GITHUB and RESUME */
+.nav-right a {
+    margin-left: 6vw; 
     text-decoration: none;
-    color: black;
+    color: #846075;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     transition: transform 0.3s ease;
     display: inline-block;
-  }
+}
   
-  .nav-left a:hover,
-  .nav-right a:hover {
-    transform: translateY(2px) scale(1.05);
-  }
+.nav-left a:hover,
+.nav-right a:hover {
+    transform: translateY(0px) scale(1.05);
+    color: #846075;
+}
