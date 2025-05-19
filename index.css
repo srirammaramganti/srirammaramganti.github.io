@@ -3,13 +3,19 @@ E0E2DB - light background
 007C77 - teal (accent)
 D2D4C8 - navbar background
 846075 - muted purple text
+C6E1E7 - light blue
 */
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #007C77;
-  color: #846075;
+  background-color: #1A1A1A;
+  color: #FAF9F6;
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
 
 .navbar {
@@ -17,16 +23,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background-color: #A0ECD0;
+  background-color: #2E2E2E;
 }
 .logo {
-  font-weight: 800;
-  font-size: 24px;
-  color: #846075;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FAF9F6;
   user-select: none;
   transition: transform 0.3s ease;
   cursor: default;
-  margin-left: 20px;
+  margin-left: 24px;
 }
 
 .logo:hover {
@@ -39,7 +45,7 @@ body {
 }
 
 .nav-links a {
-  color: #846075;
+  color: #FAF9F6;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;      
@@ -51,5 +57,13 @@ body {
 
 .nav-links a:hover {
   transform: translateY(0px) scale(1);
-  color: #846075;
+  color: #FAF9F6;
+}
+
+.center-content {
+  height: calc(100vh - 72px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
