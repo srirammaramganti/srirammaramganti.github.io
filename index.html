@@ -5,23 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sriram Maramganti</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css" />
+  <link href="index.css" rel="stylesheet">
 </head>
-<body>
 
+<body>
+  <!-- === Navbar === -->
   <header class="navbar">
-    <div class="logo">sriram maramganti</div>
+    <div class="logo"><a href="#home">sriram maramganti</a></div>
     <nav class="nav-links">
-      <a href="#home">HOME</a>
-      <a href="#contact">CONTACT</a>
-      <a href="https://github.com/srirammaramganti">GITHUB</a>
-      <a href="#resume">RESUME</a>
+      <a href="#contact" id="contact-link">contact</a>
+      <a href="https://github.com/srirammaramganti" target="_blank">github</a>
+      <a href="#resume">resume</a>
     </nav>
   </header>
 
+  <!-- === Center Section === -->
   <div class="center-content">
-    <p>skibidi toilet</p></center>
+    <p>skibidi toilet</p>
   </div>
-  
+
+  <!-- === Popup Card === -->
+  <div class="card" id="cookie-popup">
+    <svg version="1.1" id="cookieSvg" x="0px" y="0px" viewBox="0 0 122.88 122.25" xml:space="preserve"><g><path d="M101.77...Z"></path></g></svg>
+    <p class="cookieHeading">Contact Me</p>
+    <p class="cookieDescription">Email:</p>
+    <p id="copyMe">sriram.maramganti1@gmail.com</p>
+    <div class="buttonContainer">
+      <button class="acceptButton">Close</button>
+    </div>
+  </div>
+
+  <!-- === Footer === -->
+  <footer>
+    <p>&copy; 2025 Sriram Maramganti</p>
+  </footer>
+
+  <!-- === JS === -->
+  <script>
+    // Show popup
+    document.getElementById("contact-link").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("cookie-popup").style.display = "block";
+    });
+
+    // Close popup
+    document.querySelector(".acceptButton").addEventListener("click", function () {
+      document.getElementById("cookie-popup").style.display = "none";
+    });
+
+    // Copy to clipboard
+    document.getElementById("copyMe").addEventListener("click", function () {
+      const email = this.textContent;
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = this.textContent;
+        this.textContent = "Copied!";
+        setTimeout(() => {
+          this.textContent = originalText;
+        }, 1500);
+      });
+    });
+  </script>
 </body>
 </html>
