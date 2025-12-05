@@ -1,33 +1,45 @@
-/* Color reference:
-E0E2DB - light background
-007C77 - teal (accent)
-D2D4C8 - navbar background
-846075 - muted purple text
-C6E1E7 - light blue
-*/
+/* ============================================
+   COLOR PALETTE
+   E0E2DB - light background
+   007C77 - teal accent
+   D2D4C8 - navbar muted gray
+   846075 - muted purple
+   C6E1E7 - light blue
+   ============================================ */
 
-html, body {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: #1A1A1A;
   color: #FAF9F6;
-  overflow: hidden;
+
+  /* IMPORTANT: allow scrolling */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+/* =========================
+   NAVBAR
+   ========================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
   background-color: #2E2E2E;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
   font-weight: 700;
   font-size: 20px;
-  margin-left: 24px;
 }
 
 .logo a {
@@ -49,22 +61,63 @@ html, body {
   transition: color 0.2s ease;
 }
 
+.nav-links a:hover {
+  color: #C6E1E7;
+}
+
+/* =========================
+   INTRO / ABOUT SECTION
+   ========================= */
 .center-content {
-  height: calc(100vh - 72px);
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-footer {
-  background-color: #2E2E2E;
-  color: #FAF9F6;
+  padding: 60px 20px;
   text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
 }
 
-/* === Popup Card Styling === */
+.about-text {
+  font-size: 1.25rem;
+  max-width: 800px;
+  line-height: 1.7;
+  margin: auto;
+}
+
+/* =========================
+   RESUME SECTION
+   ========================= */
+.resume-section {
+  width: 80%;
+  max-width: 900px;
+  margin: 60px auto 120px auto;
+  text-align: center;
+}
+
+.resume-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.back-to-top {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.back-to-top a {
+  color: #C6E1E7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.back-to-top a:hover {
+  color: #FAF9F6;
+}
+
+/* =========================
+   CONTACT POPUP
+   ========================= */
 #cookie-popup {
   display: none;
   position: fixed;
@@ -75,9 +128,9 @@ footer {
   color: #FAF9F6;
   width: 320px;
   padding: 25px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
   border-radius: 12px;
-  z-index: 1000;
+  z-index: 2000;
   text-align: center;
 }
 
@@ -102,7 +155,6 @@ footer {
 
 #copyMe {
   font-weight: bold;
-  color: #FAF9F6;
   cursor: pointer;
   user-select: none;
   text-decoration: underline;
@@ -124,100 +176,16 @@ footer {
 }
 
 .acceptButton:hover {
-  background-color: #7b57ff;
+  background-color: #6949d3;
 }
 
-.resume-section {
-  width: 80%;
-  max-width: 900px;
-  margin: 80px auto;
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  background-color: #2E2E2E;
+  color: #FAF9F6;
   text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
 }
-
-.about-text {
-  font-size: 1.25rem;
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.7;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-body {
-    background-color: #313131; 
-    margin: 0; 
-    height: 100vh;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    padding: 0;
-}
-p {
-    font-size: 2rem;
-    font-weight: 400;
-}
-h1 {
-    font-size: 1rem;
-    font-weight: 700;
-}
-.btn-github {
-    cursor: pointer;
-    display: flex;
-    gap: 0.5rem;
-    border: none;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border-radius: 100px;
-    font-weight: 800;
-    place-content: center;
-    padding: 0.75rem 1rem;
-    font-size: 0.825rem;
-    line-height: 1rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    box-shadow: 
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    color: #fff;
-}
-.btn-github:hover {
-    box-shadow: 
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.08); /* Retain the shadow effect */
-    /*color: grey;
-    background-color: rgba(0, 0, 0, 0.5); /* Keep the background change */
-   /* border-radius: 50px;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Use flexbox for alignment */
-    /*justify-content: center; /* Center the navigation items horizontally */
-    /*align-items: center; /* Center items vertically (optional) */
-    /*background-color: #313131;
-}
-  
-li {
-    margin: 0 10px; /* Add some spacing between items *//*
-}
-  
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 0.7rem;
-}
-  
-li a:hover {
-    background-color: #111;
-    border-radius: 50px; /* Optional: make hover effect rounded 
-}*/
