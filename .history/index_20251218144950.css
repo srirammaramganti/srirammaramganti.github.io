@@ -189,46 +189,56 @@ footer {
   padding: 20px 0;
   font-size: 14px;
 }
+
+/* =========================
+   MOBILE RESPONSIVENESS
+   ========================= */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    position: relative;
+    padding: 12px 20px;
   }
-
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 28px;
-    color: white;
-    z-index: 1001;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #2E2E2E;
-    padding-bottom: 12px;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 10px 0;
-    width: 100%;
-    text-align: center;
-    border-top: 1px solid #3a3a3a;
-  }
-
   .logo {
-    width: 100%;
-    display: flex;
+    font-size: 18px;
+    display: flex; 
     justify-content: center;
+    align-items: center;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .resume-section {
+    width: 95%;
+  }
+
+  #cookie-popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .acceptButton {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
   }
 }
+
+#cookie-popup {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#cookie-popup.show {
+  opacity: 1;
+}
+

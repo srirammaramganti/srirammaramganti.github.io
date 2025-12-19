@@ -1,23 +1,27 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sriram Maramganti</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css" />
+  <link href="index.css" rel="stylesheet">
 </head>
+
 <body>
 
   <div id="home"></div>
+
   <header class="navbar">
     <div class="logo">
       <a href="#home">sriram maramganti</a>
     </div>
 
-    <nav class="nav-links" id="nav-links">
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <nav class="nav-links">
       <a href="#contact" id="contact-link">contact</a>
-      <a href="https://github.com/srirammaramganti">github</a>
+      <a href="https://github.com/srirammaramganti" target="_blank">github</a>
       <a href="#resume">resume</a>
     </nav>
   </header>
@@ -37,6 +41,7 @@
 
   <section id="resume" class="resume-section">
     <h2>Resume</h2>
+
     <iframe 
       src="sriram_resume_12_4.pdf"
       width="100%"
@@ -49,58 +54,50 @@
     </div>
   </section>
 
-  <!-- Contact Popup -->
+  <!-- ==================== UPDATED CONTACT POPUP ==================== -->
   <div class="card" id="cookie-popup">
+
     <p class="cookieHeading">Contact Me</p>
     <p class="cookieDescription">Email:</p>
     <p id="copyMe">sriram.maramganti1@gmail.com</p>
+
     <div class="buttonContainer">
       <button class="acceptButton">Close</button>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>2025 Sriram Maramganti</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Toggle hamburger menu on mobile
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("nav-links");
-
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // Show contact popup
-    document.getElementById("contact-link").addEventListener("click", function(e) {
-      e.preventDefault();
-      const popup = document.getElementById("cookie-popup");
-      popup.style.display = "block";
-      popup.classList.add("show");
-    });
-
-    // Close popup
-    document.querySelector(".acceptButton").addEventListener("click", function () {
-      const popup = document.getElementById("cookie-popup");
-      popup.style.display = "none";
-      popup.classList.remove("show");
-    });
-
-    // Copy email
-    document.getElementById("copyMe").addEventListener("click", function () {
-      const email = this.textContent;
-      navigator.clipboard.writeText(email).then(() => {
-        const originalText = this.textContent;
-        this.textContent = "Copied!";
-        setTimeout(() => {
-          this.textContent = originalText;
-        }, 1500);
+    
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
       });
+    document.getElementById("contact-link").addEventListener("click", function(e) {
+    e.preventDefault();
+      document.getElementById("cookie-popup").style.display = "block";
     });
-  </script>
+
+  document.querySelector(".acceptButton").addEventListener("click", function () {
+    document.getElementById("cookie-popup").style.display = "none";
+  });
+
+  document.getElementById("copyMe").addEventListener("click", function () {
+    const email = this.textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      const originalText = this.textContent;
+      this.textContent = "Copied!";
+      setTimeout(() => {
+        this.textContent = originalText;
+      }, 1500);
+    });
+  });
+</script>
+
 
 </body>
 </html>
