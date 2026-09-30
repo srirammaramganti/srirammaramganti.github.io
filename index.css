@@ -1,4 +1,4 @@
-    /* ============================================
+/* ============================================
        GLOBAL
        ============================================ */
     * {
@@ -61,8 +61,12 @@
     /* ============================================
        HAMBURGER BUTTON
        ============================================ */
+    .nav-toggle {
+      display: none;
+    }
+
     .hamburger {
-      display: none;            /* hidden on desktop */
+      display: none;
       background: none;
       border: none;
       cursor: pointer;
@@ -117,52 +121,6 @@
     }
 
     /* ============================================
-       CONTACT POPUP
-       ============================================ */
-    #cookie-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #424242;
-      padding: 25px;
-      width: 320px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
-      z-index: 2000;
-    }
-
-    #cookie-popup.show {
-      display: block;
-    }
-
-    .cookieHeading {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    #copyMe {
-      font-weight: bold;
-      text-decoration: underline;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    .acceptButton {
-      margin-top: 16px;
-      background-color: #7b57ff;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 20px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    /* ============================================
        FOOTER
        ============================================ */
     footer {
@@ -202,7 +160,7 @@
         margin-top: 12px;
       }
 
-      .nav-links.show {
+      .nav-toggle:checked + .hamburger + .nav-links {
         display: flex;
       }
 

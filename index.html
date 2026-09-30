@@ -19,33 +19,58 @@
       <a href="#home">sriram maramganti</a>
     </div>
 
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+
     <!-- SVG MENU ICON -->
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <label class="hamburger" for="nav-toggle" aria-label="Menu">
       <svg viewBox="0 0 24 24" fill="none">
         <path d="M3 6h18M3 12h18M3 18h18"
               stroke="white" stroke-width="2" stroke-linecap="round"/>
       </svg>
-    </button>
+    </label>
 
     <nav class="nav-links" id="nav-links">
-      <a href="#contact" id="contact-link">contact</a>
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="mailto:sriram.maramganti1@gmail.com?subject=Hello">contact</a>
       <a href="https://github.com/srirammaramganti">github</a>
       <a href="#resume">resume</a>
     </nav>
   </header>
 
   <!-- ABOUT -->
-  <section class="center-content">
-    <p class="about-text">
-      Hi, I’m Sriram Maramganti, a Computer Science major at the University of Houston
-      with an interest in software engineering and cybersecurity.
-      <br><br>
-      I enjoy building practical projects in C++, Python, and HTML/CSS while exploring
-      cybersecurity fundamentals such as encryption, secure systems, and network security.
-      <br><br>
-      Outside of academics, I love basketball, drums, meditation, and cooking.
-      My goal is to create technology that is simple, useful, and secure.
-    </p>
+  <section id="about" class="center-content">
+    <div>
+      <h1>Hi, I'm Sriram.</h1>
+
+      <h3>Computer Science • Cybersecurity • Software Engineering</h3>
+
+      <p class="about-text">
+        I'm a Computer Science student at the University of Houston with a growing
+        focus on cybersecurity, software engineering, networking, and secure systems.
+        <br><br>
+
+        I enjoy learning how technology works behind the scenes, from computer
+        networks and system security to programming and automation. I have experience
+        working with C++, Python, SQL, HTML/CSS, networking concepts, and cybersecurity
+        technologies.
+        <br><br>
+
+        Most recently, I gained hands-on cybersecurity and IT experience during my
+        internship at Borusan Pipe USA. I worked with enterprise networking and
+        security technologies while supporting cybersecurity initiatives, IT audit
+        preparation, and technical support.
+        <br><br>
+
+        I'm especially interested in network security, identity and access management,
+        vulnerability management, security engineering, cybersecurity operations,
+        and secure software development.
+        <br><br>
+
+        Outside of technology, I enjoy basketball, playing drums, meditation,
+        and cooking.
+      </p>
+    </div>
   </section>
 
   <!-- RESUME -->
@@ -57,45 +82,9 @@
     </div>
   </section>
 
-  <!-- CONTACT POPUP -->
-  <div id="cookie-popup">
-    <p class="cookieHeading">Contact Me</p>
-    <p>Email:</p>
-    <p id="copyMe">sriram.maramganti1@gmail.com</p>
-    <button class="acceptButton">Close</button>
-  </div>
-
   <footer>
     2025 Sriram Maramganti
   </footer>
-
-  <!-- JS -->
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-    const popup = document.getElementById("cookie-popup");
-
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    document.getElementById("contact-link").addEventListener("click", (e) => {
-      e.preventDefault();
-      popup.classList.add("show");
-    });
-
-    document.querySelector(".acceptButton").addEventListener("click", () => {
-      popup.classList.remove("show");
-    });
-
-    document.getElementById("copyMe").addEventListener("click", function () {
-      navigator.clipboard.writeText(this.textContent);
-      this.textContent = "Copied!";
-      setTimeout(() => {
-        this.textContent = "sriram.maramganti1@gmail.com";
-      }, 1200);
-    });
-  </script>
 
 </body>
 </html>
