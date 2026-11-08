@@ -284,3 +284,70 @@ footer {
     height: 520px;
   }
 }
+
+/* ============================================
+   RIDE (anime.js bike graphic)
+   ============================================ */
+.ride-section {
+  width: 92%;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+#bike-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#bike-svg .draw,
+#bike-svg .speed,
+#bike-svg .ground-dash,
+#bike-svg #ticks line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#bike-svg .draw { stroke-width: 3; }
+#bike-svg .draw.solid { fill: var(--bg); }
+#bike-svg .tire { stroke-width: 5; }
+#bike-svg .spoke { stroke-width: 1.5; }
+#bike-svg .ground-base { stroke-width: 2; }
+#bike-svg .ground-dash { stroke-width: 2; stroke-dasharray: 30 40; opacity: 0.5; }
+#bike-svg .speed { stroke-width: 2; opacity: 0; }
+#bike-svg #ticks line { stroke-width: 2; opacity: 0.3; }
+
+#bike-svg #bike {
+  filter: drop-shadow(0 0 6px rgba(198, 225, 231, 0.35));
+}
+
+#bike-svg .wheel {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+#bike-svg #ticks { transform-origin: 400px 215px; }
+#bike-svg #kick  { transform-origin: 388px 262px; }
+
+#bike-svg .puff {
+  fill: rgba(198, 225, 231, 0.35);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+#smoke { filter: blur(2px); }
+
+.ride-caption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

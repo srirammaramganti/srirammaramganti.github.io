@@ -43,7 +43,7 @@
     <div class="about-inner">
       <h1>Hi, I'm Sriram.</h1>
 
-      <h3>Cybersecurity/h3>
+      <h3>Cybersecurity</h3>
 
       <div class="about-text">
         <p>
@@ -79,6 +79,86 @@
     </div>
   </section>
 
+  <!-- RIDE (anime.js graphic) -->
+  <section id="ride" class="ride-section">
+    <svg id="bike-svg" viewBox="0 0 800 410" role="img"
+         aria-label="Animated line drawing of a two-stroke Royal Enfield motorcycle">
+      <defs>
+        <linearGradient id="beamGrad" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#C6E1E7" stop-opacity=".38" />
+          <stop offset="1" stop-color="#C6E1E7" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+
+      <!-- backdrop: tick ring -->
+      <g id="ticks"></g>
+
+      <!-- ground -->
+      <line class="draw ground-base" x1="40" y1="350" x2="760" y2="350" />
+      <line class="ground-dash" x1="0" y1="366" x2="800" y2="366" />
+
+      <!-- speed lines -->
+      <g id="speed">
+        <line class="speed" x1="800" y1="36"  x2="880" y2="36" />
+        <line class="speed" x1="800" y1="58"  x2="850" y2="58" />
+        <line class="speed" x1="800" y1="80"  x2="900" y2="80" />
+        <line class="speed" x1="800" y1="382" x2="870" y2="382" />
+        <line class="speed" x1="800" y1="398" x2="840" y2="398" />
+      </g>
+
+      <!-- headlight beam -->
+      <path id="beam" d="M 576 142 L 790 96 L 790 214 L 576 158 Z" fill="url(#beamGrad)" />
+
+      <!-- two-stroke smoke -->
+      <g id="smoke"></g>
+
+      <g id="bike">
+        <g class="wheel" id="rw"></g>
+        <g class="wheel" id="fw"></g>
+
+        <!-- fenders -->
+        <path class="draw" d="M 137 253 A 78 78 0 0 1 283 253" />
+        <path class="draw" d="M 517 253 A 78 78 0 0 1 663 253" />
+
+        <!-- frame -->
+        <path class="draw" d="M 524 146 L 440 232 L 388 268" />
+        <path class="draw" d="M 340 186 L 210 280" />
+        <path class="draw" d="M 388 268 L 210 280" />
+        <path class="draw" d="M 300 190 L 292 205 L 304 215 L 290 225 L 302 235 L 288 245 L 266 262" />
+
+        <!-- front fork + bars -->
+        <path class="draw" d="M 524 138 L 588 278" />
+        <path class="draw" d="M 535 142 L 598 280" />
+        <path class="draw" d="M 520 132 C 505 112 475 108 458 118" />
+        <path class="draw" d="M 458 118 L 446 126" />
+
+        <!-- engine -->
+        <circle class="draw solid" cx="388" cy="262" r="32" />
+        <rect class="draw solid" x="366" y="196" width="44" height="40" rx="3" />
+        <rect class="draw solid" x="370" y="186" width="36" height="10" rx="3" />
+        <path class="draw" d="M 366 206 H 410 M 366 216 H 410 M 366 226 H 410" />
+        <circle class="draw" cx="388" cy="262" r="10" />
+
+        <!-- kick-start lever -->
+        <g id="kick">
+          <path class="draw" d="M 388 262 L 366 308 M 366 308 L 352 311" />
+        </g>
+
+        <!-- exhaust: pipe, expansion chamber + silencer -->
+        <path class="draw" d="M 410 214 C 452 214 478 262 446 290 C 420 312 360 308 320 292" />
+        <path class="draw solid" d="M 320 286 L 150 252 Q 128 250 124 258 Q 124 268 140 272 L 320 300 Z" />
+
+        <!-- tank, seat, headlight -->
+        <path class="draw solid" d="M 335 152 C 345 118 440 108 490 138 C 500 150 490 172 462 180 L 345 184 C 328 182 326 164 335 152 Z" />
+        <path class="draw" d="M 352 162 C 392 142 450 136 480 150" />
+        <path class="draw solid" d="M 205 176 C 240 160 300 160 338 168 L 338 184 C 300 182 245 188 208 194 Z" />
+        <circle class="draw solid" cx="556" cy="150" r="20" />
+        <circle class="draw" cx="556" cy="150" r="11" />
+      </g>
+    </svg>
+    <p class="ride-caption">2-stroke &middot; single cylinder &middot; click the bike to kick-start it</p>
+  </section>
+
   <!-- RESUME -->
   <section id="resume" class="resume-section">
     <h2>Resume</h2>
@@ -90,8 +170,122 @@
   </section>
 
   <footer>
-    &copy; 2025 Sriram Maramganti
+    Sriram Maramganti
   </footer>
+
+  <script type="module">
+    import { animate, createTimeline, svg, stagger, utils }
+      from 'https://cdn.jsdelivr.net/npm/animejs@4.1.3/lib/anime.esm.min.js';
+    const { createDrawable } = svg;
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, parent, cls) => {
+      const n = document.createElementNS(NS, tag);
+      for (const k in attrs) n.setAttribute(k, attrs[k]);
+      if (cls) n.setAttribute('class', cls);
+      parent.appendChild(n);
+      return n;
+    };
+
+    /* ---- build wheels (tire, rim, hub, spokes) ---- */
+    function buildWheel(id, cx, cy) {
+      const g = document.getElementById(id);
+      el('circle', { cx, cy, r: 70 }, g, 'draw tire');
+      el('circle', { cx, cy, r: 58 }, g, 'draw');
+      el('circle', { cx, cy, r: 9 },  g, 'draw');
+      for (let i = 0; i < 16; i++) {
+        const a = (i / 16) * Math.PI * 2;
+        el('line', {
+          x1: cx + Math.cos(a) * 9,  y1: cy + Math.sin(a) * 9,
+          x2: cx + Math.cos(a) * 58, y2: cy + Math.sin(a) * 58,
+        }, g, 'draw spoke');
+      }
+    }
+    buildWheel('rw', 210, 280);
+    buildWheel('fw', 590, 280);
+
+    /* ---- backdrop tick ring ---- */
+    const ticks = document.getElementById('ticks');
+    for (let i = 0; i < 120; i++) {
+      const a = (i / 120) * Math.PI * 2, r1 = 188, r2 = i % 5 === 0 ? 210 : 200;
+      el('line', {
+        x1: 400 + Math.cos(a) * r1, y1: 215 + Math.sin(a) * r1,
+        x2: 400 + Math.cos(a) * r2, y2: 215 + Math.sin(a) * r2,
+      }, ticks);
+    }
+
+    /* ---- smoke puffs at the silencer tip ---- */
+    const smoke = document.getElementById('smoke');
+    for (let i = 0; i < 14; i++) el('circle', { cx: 122, cy: 262, r: 9 }, smoke, 'puff');
+
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      utils.set('.puff', { scale: 0.4, opacity: 0 });
+      utils.set('#beam', { opacity: 0 });
+
+      let wheelAnim;
+
+      const startLoops = () => {
+        wheelAnim = animate('.wheel', { rotate: 360, duration: 850, ease: 'linear', loop: true });
+
+        animate('#ticks', { rotate: 360, duration: 60000, ease: 'linear', loop: true });
+        animate('#ticks line', {
+          opacity: [0.12, 0.55], duration: 1400, ease: 'inOutSine',
+          delay: stagger(30), alternate: true, loop: true,
+        });
+
+        // 2-stroke idle shudder
+        animate('#bike', { y: [0, -1.4], duration: 70, ease: 'linear', alternate: true, loop: true });
+
+        animate('.ground-dash', { strokeDashoffset: [0, 70], duration: 450, ease: 'linear', loop: true });
+
+        animate('.speed', {
+          x: -1000, opacity: [0, 0.7, 0],
+          duration: (e, i) => 1100 + i * 160, delay: stagger(260),
+          ease: 'linear', loop: true,
+        });
+
+        animate('.puff', {
+          x: () => utils.random(-280, -150),
+          y: () => utils.random(-70, -15),
+          scale: () => utils.random(18, 26) / 10,
+          opacity: [0, 0.5, 0],
+          duration: 2400, delay: stagger(170), ease: 'outQuad', loop: true,
+        });
+      };
+
+      const intro = createTimeline({ autoplay: false, defaults: { ease: 'inOutQuad' } })
+        .add(createDrawable('.draw'), { draw: ['0 0', '0 1'], duration: 1100, delay: stagger(28) })
+        .add('#ticks line', { opacity: [0, 0.3], duration: 500, delay: stagger(10) }, 0)
+        .add('#beam', { opacity: [0, 1, 0.5, 1], duration: 700, ease: 'linear' }, '-=400')
+        .call(startLoops);
+
+      /* start when scrolled into view */
+      new IntersectionObserver((entries, obs) => {
+        if (entries.some(e => e.isIntersecting)) { intro.play(); obs.disconnect(); }
+      }, { threshold: 0.35 }).observe(document.getElementById('bike-svg'));
+
+      /* click = kick-start + rev */
+      document.getElementById('bike-svg').addEventListener('click', () => {
+        if (!wheelAnim) return;
+        animate('#kick', {
+          rotate: [{ to: -65, duration: 220, ease: 'outQuad' }, { to: 0, duration: 380, ease: 'outBack' }],
+        });
+        const rev = { v: 5 };
+        animate(rev, { v: 1, duration: 1800, ease: 'outCubic', onUpdate: () => { wheelAnim.speed = rev.v; } });
+
+        for (let i = 0; i < 8; i++) {
+          const p = el('circle', { cx: 122, cy: 262, r: 9 }, smoke, 'puff burst');
+          animate(p, {
+            x: utils.random(-300, -120), y: utils.random(-110, -20),
+            scale: [0.4, utils.random(26, 38) / 10], opacity: [0.7, 0],
+            duration: 1500, delay: i * 50, ease: 'outQuad',
+            onComplete: () => p.remove(),
+          });
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
