@@ -1,181 +1,286 @@
 /* ============================================
-       GLOBAL
-       ============================================ */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+   GLOBAL
+   ============================================ */
+:root {
+  --bg: #1A1A1A;
+  --surface: #2E2E2E;
+  --border: #3a3a3a;
+  --text: #FAF9F6;
+  --muted: rgba(250, 249, 246, 0.72);
+  --accent: #C6E1E7;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #1A1A1A;
-      color: #FAF9F6;
-      overflow-x: hidden;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* keeps anchored sections clear of the sticky navbar */
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-    /* ============================================
-       NAVBAR
-       ============================================ */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 40px;
-      background-color: #2E2E2E;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .logo {
-      font-weight: 700;
-      font-size: 20px;
-    }
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    /* Nav links (desktop) */
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
 
-    .nav-links a {
-      font-weight: 600;
-      font-size: 14px;
-      padding: 6px 12px;
-    }
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
 
-    .nav-links a:hover {
-      color: #C6E1E7;
-    }
+.nav-links a {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
 
-    /* ============================================
-       HAMBURGER BUTTON
-       ============================================ */
-    .nav-toggle {
-      display: none;
-    }
+.nav-links a:hover {
+  color: var(--accent);
+  background-color: rgba(198, 225, 231, 0.1);
+}
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
+/* ============================================
+   HAMBURGER BUTTON
+   ============================================ */
+.nav-toggle {
+  display: none;
+}
 
-    .hamburger svg {
-      width: 28px;
-      height: 28px;
-    }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 
-    /* ============================================
-       ABOUT SECTION
-       ============================================ */
-    .center-content {
-      min-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px;
-      text-align: center;
-    }
+.hamburger svg {
+  width: 28px;
+  height: 28px;
+}
 
-    .about-text {
-      max-width: 800px;
-      font-size: 1.25rem;
-      line-height: 1.7;
-    }
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.center-content {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 24px;
+}
 
-    /* ============================================
-       RESUME
-       ============================================ */
-    .resume-section {
-      width: 80%;
-      max-width: 900px;
-      margin: 60px auto 120px;
-      text-align: center;
-    }
+.about-inner {
+  width: 100%;
+  max-width: 760px;
+}
 
-    .resume-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+.about-inner h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
 
-    .back-to-top {
-      margin-top: 25px;
-    }
+.about-inner h3 {
+  margin-top: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
 
-    .back-to-top a {
-      color: #C6E1E7;
-      font-weight: 600;
-    }
+.about-inner h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 20px;
+  border-radius: 2px;
+  background-color: var(--accent);
+}
 
-    /* ============================================
-       FOOTER
-       ============================================ */
-    footer {
-      background-color: #2E2E2E;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-    }
+.about-text {
+  margin-top: 36px;
+  display: grid;
+  gap: 1.25em;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
 
-    /* ============================================
-       MOBILE
-       ============================================ */
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-      }
+/* ============================================
+   RESUME
+   ============================================ */
+.resume-section {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto 120px;
+  text-align: center;
+}
 
-      .logo {
-        width: 100%;
-        text-align: center;
-      }
+.resume-section h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
 
-      .hamburger {
-        display: block;
-        position: absolute;
-        top: 16px;
-        right: 20px;
-      }
+.resume-section h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin: 14px auto 28px;
+  border-radius: 2px;
+  background-color: var(--accent);
+}
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #2E2E2E;
-        margin-top: 12px;
-      }
+.resume-frame {
+  width: 100%;
+  height: 650px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--surface);
+}
 
-      .nav-toggle:checked + .hamburger + .nav-links {
-        display: flex;
-      }
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
 
-      .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-        border-top: 1px solid #3a3a3a;
-      }
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
-      .about-text {
-        font-size: 1rem;
-      }
+.btn:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+}
 
-      .resume-section {
-        width: 95%;
-      }
-    }
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding: 18px 20px;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background-color: var(--surface);
+    margin-top: 12px;
+  }
+
+  .nav-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .center-content {
+    min-height: auto;
+    padding: 56px 20px;
+  }
+
+  .about-inner {
+    text-align: center;
+  }
+
+  .about-inner h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .resume-frame {
+    height: 520px;
+  }
+}
